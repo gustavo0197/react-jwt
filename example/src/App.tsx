@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useState } from "react";
 
-import { ExampleComponent } from 'react-jwt'
-import 'react-jwt/dist/index.css'
+import { useJwt } from "react-jwt";
+import "react-jwt/dist/index.css";
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
-}
+  const [token, setToken] = useState("");
+  const { decodedToken, isExpired } = useJwt(token);
 
-export default App
+  return (
+    <div>
+      <input value={token} onChange={(e) => setToken(e.target.value)} />
+      <div>{JSON.stringify(isExpired)}</div>
+      <div>{JSON.stringify(decodedToken)}</div>
+    </div>
+  );
+};
+
+export default App;
