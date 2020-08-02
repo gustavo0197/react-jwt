@@ -18,7 +18,7 @@ yarn add react-jwt
 import React from "react";
 import { useJwt } from "react-jwt";
 
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikd1c3Rhdm8iLCJpYXQiOjE1MTYyMzkwMjJ9.RhIh9N2F_AGUy6wUV3NAsLn94Hf5qQWLBacEMZ7se8U";
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byIsImlhdCI6MTU5NjQwODI1OSwiZXhwIjo0NzUyMTY4MjU5fQ.ThwsJW2KfMTl0y24tTGWKHqvYWRp1iyo_Kh2KWTHuXc";
 
 const Example = () => {
   const { decodedToken, isExpired } = useJwt(token);
@@ -26,9 +26,9 @@ const Example = () => {
     If is a valid jwt, 'decodedToken' will be a object
     it could look like:
     {
-      "sub": "1234567890",
-      "iat": 1516239022,
-      "name": "Gustavo"
+      "name": "Gustavo",
+      "iat": 1596408259,
+      "exp": 4752168259
     }
 
     'isExpired' will return a boolean

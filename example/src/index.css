@@ -1,14 +1,42 @@
-body {
+* {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.example {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  gap: 1em;
+  padding: 1em;
+}
+.example__title {
+  font: 400 2em "Maven Pro";
+  margin: 0.25em 0;
+}
+.example__subtitle {
+  font: 400 1em "Maven Pro";
+  align-self: flex-end;
+  margin-left: 1em;
+  color: #7a7a7a;
+  margin-bottom: 0.75em;
+}
+.example__token,
+.example__result {
+  outline: none;
+  width: 100%;
+  height: 20em;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  resize: none;
+  padding: 1em;
+  box-sizing: border-box;
+  font: 400 1.2em "Maven Pro";
+  color: #7a7a7a;
+}
+
+.example--token-expired {
+  color: rgb(255, 52, 52);
+}
+.example--token-not-expired {
+  color: rgb(15, 187, 58);
 }
