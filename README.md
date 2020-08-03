@@ -1,6 +1,6 @@
 # react-jwt
 
-> Small library for decoding a json web token (JWT)
+> Small library for decoding json web tokens (JWT)
 
 [![NPM](https://img.shields.io/npm/v/react-jwt.svg)](https://www.npmjs.com/package/react-jwt)
 
