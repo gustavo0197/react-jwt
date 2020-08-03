@@ -17,8 +17,7 @@ yarn add react-jwt
 ```jsx
 import React from "react";
 import { useJwt } from "react-jwt";
-
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byIsImlhdCI6MTU5NjQwODI1OSwiZXhwIjo0NzUyMTY4MjU5fQ.ThwsJW2KfMTl0y24tTGWKHqvYWRp1iyo_Kh2KWTHuXc";
+const token = "Your JWT";
 
 const Example = () => {
   const { decodedToken, isExpired } = useJwt(token);
@@ -35,6 +34,25 @@ const Example = () => {
     true => your token is expired
     false => your token is not expired
   */
+
+  return (
+    <div>
+      ...
+    </div>
+  );
+};
+```
+
+You can also use the methods isExpired(token) and decodeToken(token)
+
+```jsx
+import React from "react";
+import { isExpired, decodeToken } from "react-jwt";
+const token = "Your JWT";
+
+const Example = () => {
+  const myDecodedToken = decodedToken(token);
+  const isMyTokenExpired = isExpired(token);
 
   return (
     <div>
