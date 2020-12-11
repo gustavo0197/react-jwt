@@ -8,8 +8,10 @@ export function decodeToken(token: string) {
       // payload ( index 1 ) has the data stored and
       // data about the expiration time
       const payload: string = token.split(".")[1];
+      // handle unicode parsing issues between atob and JWT base64 format
+      const base64: string = payload.replace("-", "+").replace("_", "/");
       // decode and parse to json
-      const decoded = JSON.parse(atob(payload));
+      const decoded = JSON.parse(atob(base64));
       return decoded;
     }
   } catch (error) {
