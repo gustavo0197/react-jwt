@@ -14,5 +14,5 @@ export function useJwt(userJwt: string) {
     setIsExpired(isTokenExpired(token));
   };
 
-  return { isExpired, decodedToken, reevaluateToken: evaluateToken };
+  return { isExpired, decodedToken, refreshToken: evaluateToken };
 }
