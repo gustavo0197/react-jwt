@@ -62,6 +62,32 @@ const Example = () => {
 };
 ```
 
+## Refresh token
+If you use the refreshToken(token) method, useJwt's state will be updated
+
+```jsx
+import React from "react";
+import { useJwt } from "react-jwt";
+const token = "Your JWT";
+
+const Example = () => {
+  const { decodedToken, isExpired, refreshToken } = useJwt(token);
+
+  const updateToken = () => {
+    const newToken = "A new JWT";
+    refreshToken(newToken);
+    // decodedToken and isExpired will be updated
+  }
+
+  return (
+    <div>
+      ...
+    </div>
+  );
+};
+```
+
+
 ## License
 
 MIT © [@gustavo0197](https://github.com/@gustavo0197)
