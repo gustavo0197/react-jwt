@@ -75,8 +75,7 @@ const Example = () => {
 
   const updateToken = () => {
     const newToken = "A new JWT";
-    refreshToken(newToken);
-    // decodedToken and isExpired will be updated
+    refreshToken(newToken); // decodedToken and isExpired will be updated
   }
 
   return (
