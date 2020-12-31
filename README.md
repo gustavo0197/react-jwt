@@ -62,8 +62,8 @@ const Example = () => {
 };
 ```
 
-## Refresh token
-If you use the refreshToken(token) method, useJwt's state will be updated
+## Refresh state
+If you use the refreshToken(newToken) method, useJwt's state will be updated
 
 ```jsx
 import React from "react";
