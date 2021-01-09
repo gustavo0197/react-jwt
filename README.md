@@ -71,11 +71,11 @@ import { useJwt } from "react-jwt";
 const token = "Your JWT";
 
 const Example = () => {
-  const { decodedToken, isExpired, refreshToken } = useJwt(token);
+  const { decodedToken, isExpired, reEvaluateToken } = useJwt(token);
 
   const updateToken = () => {
     const newToken = "A new JWT";
-    refreshToken(newToken); // decodedToken and isExpired will be updated
+    reEvaluateToken(newToken); // decodedToken and isExpired will be updated
   }
 
   return (
