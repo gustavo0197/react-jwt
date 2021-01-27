@@ -51,7 +51,7 @@ import { isExpired, decodeToken } from "react-jwt";
 const token = "Your JWT";
 
 const Example = () => {
-  const myDecodedToken = decodedToken(token);
+  const myDecodedToken = decodeToken(token);
   const isMyTokenExpired = isExpired(token);
 
   return (
