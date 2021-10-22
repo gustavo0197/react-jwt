@@ -15,9 +15,10 @@ export function decodeToken(token: string): Object | null {
     // data about the expiration time
     const payload: string = token.split(".")[1];
     // determine the padding characters required for the base64 string
-    const padding: string = "=".repeat((4 - payload.length % 4) % 4);
+    const padding: string = "=".repeat((4 - (payload.length % 4)) % 4);
     // convert the base64url string to a base64 string
-    const base64: string = payload.replace("-", "+").replace("_", "/") + padding;
+    const base64: string =
+      payload.replace("-", "+").replace("_", "/") + padding;
     // decode and parse to json
     const decoded = JSON.parse(atob(base64));
 
