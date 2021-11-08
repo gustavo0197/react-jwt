@@ -14,8 +14,11 @@ export function decodeToken(token: string): Object | null {
     // payload ( index 1 ) has the data stored and
     // data about the expiration time
     const payload: string = token.split(".")[1];
-    // handle unicode parsing issues between atob and JWT base64 format
-    const base64: string = payload.replace("-", "+").replace("_", "/");
+    // determine the padding characters required for the base64 string
+    const padding: string = "=".repeat((4 - (payload.length % 4)) % 4);
+    // convert the base64url string to a base64 string
+    const base64: string =
+      payload.replace("-", "+").replace("_", "/") + padding;
     // decode and parse to json
     const decoded = JSON.parse(atob(base64));
 
