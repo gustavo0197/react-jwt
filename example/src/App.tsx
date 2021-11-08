@@ -39,6 +39,7 @@ const App = () => {
         <textarea
           className="example__result"
           value={JSON.stringify(decodedToken)}
+          disabled
         />
       </div>
     </div>
