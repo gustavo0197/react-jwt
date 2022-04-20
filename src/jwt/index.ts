@@ -3,7 +3,9 @@
  * @param token - The JWT that you want to decode
  * @returns Decoded token
  */
-export function decodeToken(token: string): Object | null {
+export function decodeToken<T>(token: string): T | null;
+export function decodeToken(token: string): Object | null;
+export function decodeToken<T = Object>(token: string): T | null {
   try {
     // if the token has more or less than 3 parts or is not a string
     // then is not a valid token
