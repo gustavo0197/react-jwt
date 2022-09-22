@@ -21,8 +21,15 @@ export function decodeToken<T = Object>(token: string): T | null {
     // convert the base64url string to a base64 string
     const base64: string =
       payload.replace("-", "+").replace("_", "/") + padding;
-    // decode and parse to json
-    const decoded = JSON.parse(atob(base64));
+    // parse base64 into json
+    const jsonPayload = decodeURIComponent(
+      window.atob(base64)
+          .split('')
+          .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+          .join('')
+    );
+    // decode json
+    const decoded = JSON.parse(jsonPayload);
 
     return decoded;
   } catch (error) {
