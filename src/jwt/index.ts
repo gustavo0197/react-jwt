@@ -1,3 +1,5 @@
+import { base64DecToArray, UTF8ArrToStr } from "../helpers/base64";
+
 /**
  * Try to decode a JWT. If the token is valid you'll get an object otherwise you'll get null
  * @param token - The JWT that you want to decode
@@ -16,23 +18,14 @@ export function decodeToken<T = Object>(token: string): T | null {
     // payload ( index 1 ) has the data stored and
     // data about the expiration time
     const payload: string = token.split(".")[1];
-    // determine the padding characters required for the base64 string
-    const padding: string = "=".repeat((4 - (payload.length % 4)) % 4);
-    // convert the base64url string to a base64 string
-    const base64: string =
-      payload.replace("-", "+").replace("_", "/") + padding;
-    // parse base64 into json
-    const jsonPayload = decodeURIComponent(
-      window.atob(base64)
-          .split('')
-          .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
-          .join('')
-    );
-    // decode json
-    const decoded = JSON.parse(jsonPayload);
 
-    return decoded;
+    const base64Bytes: number[] = base64DecToArray(payload);
+    // Convert utf-8 array to string
+    const jsonPayload: string = decodeURIComponent(UTF8ArrToStr(base64Bytes));
+    // Parse JSON
+    return JSON.parse(jsonPayload);
   } catch (error) {
+    console.error("There was an error decoding token: ", error);
     // Return null if something goes wrong
     return null;
   }

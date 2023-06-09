@@ -29,4 +29,3 @@ interface IUseJwt<T = Object> {
   decodedToken: T | null;
   reEvaluateToken: (token: string) => void;
 }
-
