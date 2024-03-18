@@ -8,15 +8,17 @@
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.ts",
+  "type": "module",
   "engines": {
-    "node": ">=10"
+    "node": ">=16"
   },
   "scripts": {
-    "build": "microbundle-crl --compress --format modern,cjs",
+    "old-build": "microbundle-crl --compress --format modern,cjs",
+    "build": "vite build",
     "start": "microbundle-crl watch",
-    "prepare": "run-s build",
-    "test": "run-s test:unit test:lint test:build",
-    "test:build": "run-s build",
+    "prepare": "build",
+    "test": "test:unit && test:lint && test:build",
+    "test:build": "build",
     "test:lint": "eslint .",
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
@@ -27,35 +29,22 @@
     "react": "^16.0.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.1.1",
-    "@testing-library/user-event": "^14.1.1",
-    "@types/jest": "^27.4.1",
-    "@types/node": "^17.0.31",
-    "@types/react": "^18.0.8",
-    "@types/react-dom": "^18.0.3",
-    "@typescript-eslint/eslint-plugin": "^5.21.0",
-    "@typescript-eslint/parser": "^5.21.0",
-    "babel-eslint": "^10.1.0",
-    "cross-env": "^7.0.3",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-config-standard-react": "^9.2.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.17.0",
-    "eslint-plugin-standard": "^4.0.1",
-    "gh-pages": "^2.2.0",
-    "microbundle-crl": "^0.13.10",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.0.4",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-scripts": "^5.0.1",
-    "typescript": "^4.6.4"
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/node": "^20.11.28",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "eslint": "^8.57.0",
+    "gh-pages": "^6.1.1",
+    "prettier": "^3.2.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.4.2",
+    "vite": "^5.1.6",
+    "vitest": "^1.4.0"
   },
   "files": [
     "dist"
@@ -69,6 +58,6 @@
     "authentication"
   ],
   "optionalDependencies": {
-    "fsevents": "^2.3.2"
+    "fsevents": "^2.3.3"
   }
 }
