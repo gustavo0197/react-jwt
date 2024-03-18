@@ -11,7 +11,7 @@ export function decodeToken<T = Object>(token: string): T | null {
   try {
     // if the token has more or less than 3 parts or is not a string
     // then is not a valid token
-    if (token.split(".").length !== 3 || typeof token !== "string") {
+    if (typeof token !== "string" || token.split(".").length !== 3) {
       return null;
     }
 
