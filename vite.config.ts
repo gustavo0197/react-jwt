@@ -1,20 +1,29 @@
-import {defineConfig} from "vite"
+import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
+import pkg from "./package.json";
 
 export default defineConfig(() => {
   return {
-    root: "./src",
+    plugins: [dts()],
     build: {
-      lib :{
+      minify: true,
+      lib: {
         entry: {
-          'react-jwt': './src/index.ts'
+          index: "./src/index.ts"
         },
-        name: "react-jwt",
+        name: "react-jwt"
       },
       rollupOptions: {
-        input: {
-          "react-jwt": "./src/index.ts"
+        external: [
+          ...Object.keys(pkg.devDependencies), // don't bundle dependencies
+          ...Object.keys(pkg.peerDependencies), // don't bundle peer dependencies
+          /^node:.*/ // don't bundle built-in Node.js modules (use protocol imports!)
+        ],
+        output: {
+          dir: "dist"
         }
-      }
+      },
+      target: "esnext"
     }
-  }
-})
+  };
+});

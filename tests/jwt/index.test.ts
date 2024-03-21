@@ -1,4 +1,4 @@
-import { decodeToken, isTokenExpired } from "./index";
+import { decodeToken, isTokenExpired } from "../../src/jwt/index";
 
 describe("decodeToken()", () => {
   test("Should return an object if token is valid", () => {
