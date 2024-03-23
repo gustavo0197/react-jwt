@@ -7,11 +7,13 @@ export default defineConfig(() => {
     plugins: [dts()],
     build: {
       minify: true,
+      sourcemap: false,
       lib: {
         entry: {
           index: "./src/index.ts"
         },
-        name: "react-jwt"
+        name: "react-jwt",
+        formats: ["es", "umd"]
       },
       rollupOptions: {
         external: [

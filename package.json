@@ -6,7 +6,6 @@
   "license": "MIT",
   "repository": "https://www.github.com/gustavo0197/react-jwt",
   "main": "dist/index.js",
-  "module": "dist/index.modern.js",
   "source": "src/index.ts",
   "type": "module",
   "engines": {
@@ -37,6 +36,7 @@
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
+    "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.57.0",
     "gh-pages": "^6.1.1",
     "prettier": "^3.2.5",
