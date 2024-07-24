@@ -1,6 +1,6 @@
 {
   "name": "react-jwt",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.2",
   "description": "Small library for decoding json web tokens (JWT)",
   "author": "Gustavo Velazquez",
   "license": "MIT",

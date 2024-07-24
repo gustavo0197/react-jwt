@@ -21,7 +21,7 @@ export function decodeToken<T = Object>(token: string): T | null {
 
     const base64Bytes: number[] = base64DecToArray(payload);
     // Convert utf-8 array to string
-    const jsonPayload: string = decodeURIComponent(UTF8ArrToStr(base64Bytes));
+    const jsonPayload: string = UTF8ArrToStr(base64Bytes);
     // Parse JSON
     return JSON.parse(jsonPayload);
   } catch (error) {
