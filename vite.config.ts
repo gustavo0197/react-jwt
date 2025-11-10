@@ -27,6 +27,13 @@ export default defineConfig({
     target: "esnext"
   },
   test: {
-    environment: "happy-dom"
+    environment: "happy-dom",
+    open: false,
+    include: ["./tests/**/*.test.ts", "./tests/**/*.test.tsx"],
+    coverage: {
+      provider: "v8",
+      reporter: ["text", "json", "html", "lcov"],
+      include: ["./src/**/*.{ts,tsx}", "./tests/**/*.{ts,tsx}"]
+    }
   }
 });

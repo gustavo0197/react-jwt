@@ -1,6 +1,6 @@
 {
   "name": "react-jwt",
-  "version": "2.0.0-beta.2",
+  "version": "2.0.0-beta.3",
   "description": "Small library for decoding json web tokens (JWT)",
   "author": "Gustavo Velazquez",
   "license": "MIT",
@@ -15,30 +15,29 @@
     "start": "vite build --watch --mode development",
     "build": "vite build",
     "prepare": "npm run build",
-    "test": "npm run test:unit && npm run build",
-    "test:unit": "vitest --run",
-    "test:watch": "vitest",
-    "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build"
+    "test": "vitest --run --coverage",
+    "test:ui": "vitest --ui --coverage",
+    "predeploy": "cd example && npm install && npm run build"
   },
   "peerDependencies": {
     "react": "^16.0.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
-    "@testing-library/react": "^14.2.1",
-    "@types/node": "^20.11.28",
+    "@testing-library/react": "^16.3.0",
+    "@types/node": "^24.10.0",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
-    "@vitejs/plugin-react": "^4.2.1",
-    "gh-pages": "^6.1.1",
-    "happy-dom": "^14.3.1",
+    "@vitejs/plugin-react": "^5.1.0",
+    "@vitest/coverage-v8": "^4.0.8",
+    "@vitest/ui": "^4.0.8",
+    "happy-dom": "^20.0.10",
     "prettier": "^3.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "^5.4.2",
-    "vite": "^5.1.6",
-    "vite-plugin-dts": "^3.7.3",
-    "vitest": "^1.4.0"
+    "typescript": "^5.9.3",
+    "vite": "^7.2.2",
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^4.0.8"
   },
   "files": [
     "dist"
