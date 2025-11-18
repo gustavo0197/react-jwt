@@ -74,24 +74,31 @@ export function UTF8ArrToStr(bytes: number[]): string {
             bytes[++i] -
             128
         : nPart > 247 && nPart < 252 && i + 4 < arrayLength /* five bytes */
-        ? ((nPart - 248) << 24) +
-          ((bytes[++i] - 128) << 18) +
-          ((bytes[++i] - 128) << 12) +
-          ((bytes[++i] - 128) << 6) +
-          bytes[++i] -
-          128
-        : nPart > 239 && nPart < 248 && i + 3 < arrayLength /* four bytes */
-        ? ((nPart - 240) << 18) +
-          ((bytes[++i] - 128) << 12) +
-          ((bytes[++i] - 128) << 6) +
-          bytes[++i] -
-          128
-        : nPart > 223 && nPart < 240 && i + 2 < arrayLength /* three bytes */
-        ? ((nPart - 224) << 12) + ((bytes[++i] - 128) << 6) + bytes[++i] - 128
-        : nPart > 191 && nPart < 224 && i + 1 < arrayLength /* two bytes */
-        ? ((nPart - 192) << 6) + bytes[++i] - 128 /* nPart < 127 ? */
-        : /* one byte */
-          nPart
+          ? ((nPart - 248) << 24) +
+            ((bytes[++i] - 128) << 18) +
+            ((bytes[++i] - 128) << 12) +
+            ((bytes[++i] - 128) << 6) +
+            bytes[++i] -
+            128
+          : nPart > 239 && nPart < 248 && i + 3 < arrayLength /* four bytes */
+            ? ((nPart - 240) << 18) +
+              ((bytes[++i] - 128) << 12) +
+              ((bytes[++i] - 128) << 6) +
+              bytes[++i] -
+              128
+            : nPart > 223 &&
+                nPart < 240 &&
+                i + 2 < arrayLength /* three bytes */
+              ? ((nPart - 224) << 12) +
+                ((bytes[++i] - 128) << 6) +
+                bytes[++i] -
+                128
+              : nPart > 191 &&
+                  nPart < 224 &&
+                  i + 1 < arrayLength /* two bytes */
+                ? ((nPart - 192) << 6) + bytes[++i] - 128 /* nPart < 127 ? */
+                : /* one byte */
+                  nPart
     );
   }
 

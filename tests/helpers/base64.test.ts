@@ -1,4 +1,5 @@
-import { base64DecToArray, UTF8ArrToStr } from "./base64";
+import { describe, test, expect } from "vitest";
+import { base64DecToArray, UTF8ArrToStr } from "../../src/helpers/base64";
 
 describe("Decode base64", () => {
   test("Should decode a base64 string", () => {

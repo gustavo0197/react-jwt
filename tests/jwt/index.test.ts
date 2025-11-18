@@ -1,4 +1,5 @@
-import { decodeToken, isTokenExpired } from "./index";
+import { describe, test, expect } from "vitest";
+import { decodeToken, isTokenExpired } from "../../src/jwt/index";
 
 describe("decodeToken()", () => {
   test("Should return an object if token is valid", () => {
