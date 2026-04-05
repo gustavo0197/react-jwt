@@ -80,7 +80,7 @@ describe("useJwt()", () => {
     expect(result.current.decodedToken).toMatchObject({ sub: "1234567890" });
   });
 
-  test.only("reEvaluateToken should set decodedToken to null for an invalid token", () => {
+  test("reEvaluateToken should set decodedToken to null for an invalid token", () => {
     const { result } = renderHook(() => useJwt(TOKEN_NOT_EXPIRED));
 
     act(() => {

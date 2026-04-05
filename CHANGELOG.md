@@ -1,3 +1,7 @@
+## 2.1.1
+
+- Extra tests cases were created
+
 ## 2.1.0
 
 - Has changes made in 2.1.0-beta.0
